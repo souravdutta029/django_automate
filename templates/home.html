@@ -4,6 +4,7 @@
 
 {% block content %}
 <div class="container" style="padding: 50px;">
+    {% if user.is_authenticated %}
     <h2 class="text-center text-uppercase">Lets do some automation task with django</h2>
     <div class="row pt-5">
         <!-- Import data -->
@@ -91,5 +92,20 @@
             </a>
         </div>
     </div>
+    {% else %}
+
+    <div class="home-info">
+        <h2 class="text-center">Automate your tasks with ease using Django</h2>
+        <p class="lead text-center text-muted">
+            Automate tasks effortlessly with Django, a powerful web framework offering streamlined development,
+            robust tools, and seamless integrations for building dynamic applications and simplifying complex workflows
+            with minimal code.
+        </p>
+        <div style="display: flex; justify-content: center;">
+            <a href="{% url 'login' %}" class="btn btn-primary text-uppercase">Login</a>
+            &nbsp;<a href="{% url 'register' %}" class="btn btn-success text-uppercase">Register</a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock content %}
