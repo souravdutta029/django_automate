@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="container mt-3 shadow rounded" style="max-width: 600px; padding: 10px; border-radius: 10px;">
+    <h2 class="text-center text-uppercase">Compress Images</h2>
+    <form action="{% url 'compress' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form | crispy }}
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Compress" class="btn btn-success">
+        </div>
+    </form>
+    {% include 'alerts.html' %}
+</div>
+{% endblock content %}

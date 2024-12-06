@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'emails',
     'ckeditor',
     'anymail',
+    'image_compression',
 ]
 
 MIDDLEWARE = [
@@ -138,11 +139,11 @@ MESSAGE_TAGS = {
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
 # EMAIL CONFIGURATION
-# EMAIL_HOST = config('EMAIL_HOST')
-# EMAIL_PORT = config('EMAIL_PORT', cast=int)
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 DEFAULT_TO_EMAIL = config('DEFAULT_TO_EMAIL')
 
@@ -155,11 +156,11 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+# EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
 
-ANYMAIL = {
-    "SENDINBLUE_API_KEY": config('SENDINBLUE_API_KEY'),
-}
+# ANYMAIL = {
+#     "SENDINBLUE_API_KEY": config('SENDINBLUE_API_KEY'),
+# }
 
 CSRF_TRUSTED_ORIGINS = ['https://b07a-2405-201-d01f-8013-530-1b70-9a7b-817c.ngrok-free.app']
 BASE_URL = 'https://b07a-2405-201-d01f-8013-530-1b70-9a7b-817c.ngrok-free.app/'
